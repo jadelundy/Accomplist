@@ -61,4 +61,21 @@ public class FragmentTask extends Fragment {
             }
         });
     }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        if (savedInstanceState != null) {
+            mMyFragment = getSupportFragmentManager().getFragment(savedInstanceState, "myFragmentName");
+            //Restore the fragment's state here
+        }
+    }
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable("list", (Serializable) myData);
+        //Save the fragment's state here
+    }
+
 }
