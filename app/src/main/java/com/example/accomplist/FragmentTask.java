@@ -12,6 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+
+import com.google.android.material.textfield.TextInputEditText;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -45,5 +48,17 @@ public class FragmentTask extends Fragment {
             }
         });
 
+        Button addTaskBtn = view.findViewById(R.id.createTaskBtn);
+        final CheckBox checkOne = view.findViewById(R.id.checkBtn);
+        final TextInputEditText input = view.findViewById(R.id.inputText);
+        input.setVisibility(View.GONE);
+        checkOne.setVisibility(View.GONE);
+        addTaskBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                checkOne.setVisibility(View.VISIBLE);
+                input.setVisibility(View.VISIBLE);
+            }
+        });
     }
 }
