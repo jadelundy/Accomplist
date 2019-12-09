@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_fragmentStory_to_fragmentHome"
             app:destination="@id/fragmentHome" />
+        <action
+            android:id="@+id/action_fragmentStory_to_fragmentChapterOne"
+            app:destination="@id/fragmentChapterOne" />
     </fragment>
     <fragment
         android:id="@+id/fragmentTask"
@@ -45,6 +48,15 @@
         tools:layout="@layout/fragment_character" >
         <action
             android:id="@+id/action_fragmentCharacter_to_fragmentHome"
+            app:destination="@id/fragmentHome" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentChapterOne"
+        android:name="com.example.accomplist.FragmentChapterOne"
+        android:label="fragment_chapter_one"
+        tools:layout="@layout/fragment_chapter_one" >
+        <action
+            android:id="@+id/action_fragmentChapterOne_to_fragmentHome"
             app:destination="@id/fragmentHome" />
     </fragment>
 </navigation>
