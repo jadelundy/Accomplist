@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentHome">
+
+    <fragment
+        android:id="@+id/fragmentHome"
+        android:name="com.example.accomplist.FragmentHome"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_fragmentHome_to_fragmentTask"
+            app:destination="@id/fragmentTask" />
+        <action
+            android:id="@+id/action_fragmentHome_to_fragmentStory"
+            app:destination="@id/fragmentStory" />
+        <action
+            android:id="@+id/action_fragmentHome_to_fragmentCharacter"
+            app:destination="@id/fragmentCharacter" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentStory"
+        android:name="com.example.accomplist.FragmentStory"
+        android:label="fragment_story"
+        tools:layout="@layout/fragment_story" />
+    <fragment
+        android:id="@+id/fragmentTask"
+        android:name="com.example.accomplist.FragmentTask"
+        android:label="fragment_task"
+        tools:layout="@layout/fragment_task" />
+    <fragment
+        android:id="@+id/fragmentCharacter"
+        android:name="com.example.accomplist.FragmentCharacter"
+        android:label="fragment_character"
+        tools:layout="@layout/fragment_character" />
+</navigation>
