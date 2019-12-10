@@ -54,6 +54,6 @@ public class FragmentStory extends Fragment {
                 navController.navigate(R.id.action_fragmentStory_to_fragmentChapterOne);
             }
         });
-        chapOneButton.setVisibility(View.GONE);
+        //chapOneButton.setVisibility(View.GONE);
     }
 }

@@ -53,7 +53,7 @@ public class FragmentTask extends Fragment {
 
         Button addTaskBtn = view.findViewById(R.id.createTaskBtn);
         final CheckBox checkOne = view.findViewById(R.id.checkBtn);
-        final TextInputEditText input = view.findViewById(R.id.inputText);
+        final TextInputEditText input = view.findViewById(R.id.textInputEditText);
         input.setVisibility(View.GONE);
         checkOne.setVisibility(View.GONE);
         addTaskBtn.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +65,7 @@ public class FragmentTask extends Fragment {
         });
     }
 
-    @Override
+    /*@Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
@@ -79,6 +79,6 @@ public class FragmentTask extends Fragment {
         super.onSaveInstanceState(outState);
         outState.putSerializable("list", (Serializable) myData);
         //Save the fragment's state here
-    }
+    }*/
 
 }
