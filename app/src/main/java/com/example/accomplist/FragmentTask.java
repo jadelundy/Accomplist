@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -24,8 +25,9 @@ import com.google.android.material.textfield.TextInputEditText;
 
  */
 public class FragmentTask extends Fragment {
-
-
+    public final String TASK = "saved_task";
+    private String mTask;
+    private TextInputEditText etUser;
     public FragmentTask() {
         // Required empty public constructor
     }
@@ -35,6 +37,15 @@ public class FragmentTask extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_task, container, false);
+
+        etUser = (TextInputEditText) rootView.findViewById(R.id.user_ID);
+        if (getArguments().getString(TASK) != null){
+            mTask=getArguments().getString(TASK);
+        }
+        if (mTask != null){
+            etUser.setText(mTask);
+        }
+        return rootView;
     }
 
     @Override
@@ -43,26 +54,30 @@ public class FragmentTask extends Fragment {
 
         final NavController navController = Navigation.findNavController(view);
 
-        Button bacButton = view.findViewById(R.id.bacBtn);
-        bacButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                navController.navigate(R.id.action_fragmentTask_to_fragmentHome);
-            }
-        });
+        if (savedInstanceState == null) {
+            Button bacButton = view.findViewById(R.id.bacBtn);
+            bacButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    navController.navigate(R.id.action_fragmentTask_to_fragmentHome);
+                }
+            });
 
-        Button addTaskBtn = view.findViewById(R.id.createTaskBtn);
-        final CheckBox checkOne = view.findViewById(R.id.checkBtn);
-        final TextInputEditText input = view.findViewById(R.id.inputText);
-        input.setVisibility(View.GONE);
-        checkOne.setVisibility(View.GONE);
-        addTaskBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                checkOne.setVisibility(View.VISIBLE);
-                input.setVisibility(View.VISIBLE);
-            }
-        });
+            Button addTaskBtn = view.findViewById(R.id.createTaskBtn);
+            final CheckBox checkOne = view.findViewById(R.id.checkBtn);
+            final TextInputEditText input = view.findViewById(R.id.inputText);
+            input.setVisibility(View.GONE);
+            checkOne.setVisibility(View.GONE);
+            addTaskBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    checkOne.setVisibility(View.VISIBLE);
+                    input.setVisibility(View.VISIBLE);
+                }
+            });
+        } else {
+
+        }
     }
 
     @Override
@@ -70,14 +85,14 @@ public class FragmentTask extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         if (savedInstanceState != null) {
-            mMyFragment = getSupportFragmentManager().getFragment(savedInstanceState, "myFragmentName");
+
             //Restore the fragment's state here
         }
     }
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putSerializable("list", (Serializable) myData);
+        outState.putString("taskName", taskName);
         //Save the fragment's state here
     }
 
