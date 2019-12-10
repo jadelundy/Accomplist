@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_fragmentTask_to_fragmentHome"
             app:destination="@id/fragmentHome" />
+        <action
+            android:id="@+id/action_fragmentTask_to_blankFragment"
+            app:destination="@id/StoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/fragmentCharacter"
@@ -58,5 +61,14 @@
         <action
             android:id="@+id/action_fragmentChapterOne_to_fragmentHome"
             app:destination="@id/fragmentHome" />
+    </fragment>
+    <fragment
+        android:id="@+id/StoryFragment"
+        android:name="com.example.accomplist.BlankFragment"
+        android:label="fragment_blank"
+        tools:layout="@layout/fragment_blank" >
+        <action
+            android:id="@+id/action_blankFragment_to_fragmentChapterOne"
+            app:destination="@id/fragmentChapterOne" />
     </fragment>
 </navigation>

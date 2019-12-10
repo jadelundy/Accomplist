@@ -5,8 +5,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
@@ -15,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.ListView;
 
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -23,12 +20,14 @@ import com.google.android.material.textfield.TextInputEditText;
  * A simple {@link Fragment} subclass.
 
  */
-public class FragmentTask extends Fragment {
-
-
+public class FragmentTask extends Fragment  {
+    //private boolean called = false;
+    //private Button chapOneButton;
     public FragmentTask() {
         // Required empty public constructor
     }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,17 +42,13 @@ public class FragmentTask extends Fragment {
 
         final NavController navController = Navigation.findNavController(view);
 
-        Button bacButton = view.findViewById(R.id.bacBtn);
-        bacButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                navController.navigate(R.id.action_fragmentTask_to_fragmentHome);
-            }
-        });
+
+
+
 
         Button addTaskBtn = view.findViewById(R.id.createTaskBtn);
         final CheckBox checkOne = view.findViewById(R.id.checkBtn);
-        final TextInputEditText input = view.findViewById(R.id.inputText);
+        final TextInputEditText input = view.findViewById(R.id.textInputEditText);
         input.setVisibility(View.GONE);
         checkOne.setVisibility(View.GONE);
         addTaskBtn.setOnClickListener(new View.OnClickListener() {
@@ -63,22 +58,23 @@ public class FragmentTask extends Fragment {
                 input.setVisibility(View.VISIBLE);
             }
         });
+        Button doneButton = view.findViewById(R.id.doneBtn);
+        doneButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                navController.navigate(R.id.action_fragmentTask_to_blankFragment);
+
+            }
+        });
+
+
+
     }
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        if (savedInstanceState != null) {
-            mMyFragment = getSupportFragmentManager().getFragment(savedInstanceState, "myFragmentName");
-            //Restore the fragment's state here
-        }
-    }
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putSerializable("list", (Serializable) myData);
-        //Save the fragment's state here
     }
 
-}
+
+
+
+

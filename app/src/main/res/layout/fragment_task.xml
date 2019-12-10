@@ -15,13 +15,13 @@
         android:background="#FFFFFF">
 
         <Button
-            android:id="@+id/bacBtn"
+            android:id="@+id/doneBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="8dp"
             android:background="#E3C08E"
-            android:text="Back"
+            android:text="Done"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -101,7 +101,6 @@
             android:layout_marginEnd="44dp"
             android:layout_marginRight="44dp"
             android:layout_marginBottom="248dp"
-            android:hint="Enter your task"
             app:layout_constraintBottom_toTopOf="@+id/createTaskBtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.6"
